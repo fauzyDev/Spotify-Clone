@@ -1,5 +1,6 @@
 'use client'
 
+import React from "react";
 import { useState } from "react";
 import Sidebar from "@/components/Sidebar";
 import PlaylistView from "@/components/PlaylistView";
@@ -23,20 +24,25 @@ const Page = () => {
         <Sidebar 
         view={view}
         setView={setView}
-        setPlaylistId={setPlaylistId}
-       />
+        setPlaylistId={setPlaylistId}/>
 
         {view === 'playlist' && <PlaylistView 
         playlistId={playlistId} 
         setSongId={setSongId} 
-        setPlayingTrack={setPlayingTrack} />}
+        setPlayingTrack={setPlayingTrack}/>}
 
         {view === 'search' && <Search 
         setView={setView}
         setPlaylistId={setPlaylistId}
-        />}
+        setSongId={setSongId} 
+        setPlayingTrack={setPlayingTrack}/>}
         
-        {view === 'artist' && <Artist/>}
+        {view === 'artist' && <Artist 
+        artistIdId={artistId}
+        setArtistId={setArtistId} 
+        setSongId={setSongId} 
+        setPlayingTrack={setPlayingTrack}/>}
+
         {view === 'library' && <Library 
         setView={setView}
         setPlaylistId={setPlaylistId}/>}

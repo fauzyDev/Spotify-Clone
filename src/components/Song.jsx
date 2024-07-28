@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import { useSession } from "next-auth/react";
 import { useState } from "react";
@@ -26,9 +26,7 @@ const Song = ({ song, track, setSongId, setPlayingTrack }) => {
             return data
         }
     }
-
-    
-
+  
     function secondsToMinutes(duration) {
         const minutes = Math.floor(duration / 60000);
         const seconds = ((duration % 60000) / 1000).toFixed(0);
@@ -44,7 +42,7 @@ const Song = ({ song, track, setSongId, setPlayingTrack }) => {
 
             <div className="flex items-center space-x-4 ">
                 {hover ? <PlayIcon className="h-5 w-5 text-white" /> : <span className="w-5 ">{song + 1}</span>}
-                <Image className="h-12 w-12" src={track.album.images[0]?.url} alt="song" width={35} height={35} />
+                {track.album.images[0]?.url && <Image className="h-12 w-12" src={track.album.images[0]?.url} alt="song" width={35} height={35} />}
                 <div>
                     <span className="w-36 lg:w-64 truncate text-white text-base">{track.name}</span>
                     <p className="w-36 truncate">

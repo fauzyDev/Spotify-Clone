@@ -21,7 +21,7 @@ const PlaylistFiture = ({ setView, setPlaylistId }) => {
           if (session) {
             const token = session.accessToken
             const data = await getData('v1/browse/featured-playlists?' + new URLSearchParams({
-                country: 'ID'
+                locale: 'sv_ID'
             }), {
               headers: {
                 Authorization: `Bearer ${token}`,

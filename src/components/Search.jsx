@@ -7,7 +7,7 @@ import Image from "next/image"
 import PlaylistFiture from "./PlaylistFiture"
 import SearchUpdate from "./SearchUpdate"
 
-const Search = ({ setView, setPlaylistId }) => {
+const Search = ({ setView, setPlaylistId, setSongId, setPlayingTrack }) => {
         const { data: session } = useSession();
         const [search, setSearch] = useState(null)
         const [input, setInput] = useState('')
@@ -51,7 +51,12 @@ const Search = ({ setView, setPlaylistId }) => {
                 setPlaylistId={setPlaylistId}/> : <SearchUpdate
                 playlists={search?.playlists.items} 
                 songs={search?.tracks.items}
-                artists={search?.artists.items}/>}
+                artists={search?.artists.items}
+                setView={setView}
+                setPlaylistId={setPlaylistId}
+                setSongId={setSongId} 
+                setPlayingTrack={setPlayingTrack}
+                />}
             </div>
         </div>
     )

@@ -1,4 +1,6 @@
+import withPWAInit from "@ducanh2912/next-pwa";
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
     env: {
         NEXTAUTH_URL: "http://localhost:3000",
@@ -30,4 +32,8 @@ const nextConfig = {
 
 };
 
-export default nextConfig;
+const withPWA = withPWAInit({
+    dest: "public",
+  });
+
+export default withPWA(nextConfig);
